@@ -2,6 +2,21 @@ import React from 'react';
 import { HeadingText, PieChart } from 'nr1';
 
 export default class TotalCancellations extends React.Component {
+    constructor() {
+        super(...arguments);
+
+        this.state = {
+            lastToken: null
+        }
+    }
+
+    componentDidUpdate() {
+        if (this.props.token && this.props.token != this.state.lastToken) {
+            console.log(`requesting data with api token ${this.props.token}`)
+            this.setState({lastToken: this.props.token})
+        }
+    }
+
     render() {
         const cancellationsA = {
             metadata: {
