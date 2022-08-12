@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChartGroup, Grid, GridItem } from 'nr1';
+import EndTestSection from './end-test';
 import NewsletterSignups from './newsletter-signups';
 import PastTests from './past-tests';
 import TotalCancellations from './total-cancellations';
@@ -41,6 +42,7 @@ export default class AbTestNerdletNerdlet extends React.Component {
                         <VersionPageViews version='b' />
                     </GridItem>
                 </ChartGroup>
+                <GridItem columnSpan={12}><EndTestSection /></GridItem>
                 <GridItem columnSpan={12}><PastTests /></GridItem>
             </Grid>
         </div>
