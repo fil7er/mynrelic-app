@@ -9,6 +9,7 @@ import VersionDescription from './description';
 import VersionPageViews from './page-views';
 import VersionTotals from './totals';
 
+const ACCOUNT_ID = 'Removed'
 const VERSION_A_DESCRIPTION = 'The newsletter signup message says, "Sign up for our newsletter"'
 const VERSION_B_DESCRIPTION = 'The newsletter signup message says, "Sign up for our newsletter and get a free shirt!"'
 
@@ -32,8 +33,12 @@ export default class AbTestNerdletNerdlet extends React.Component {
                 <GridItem columnSpan={12}><NewsletterSignups /></GridItem>
                 <GridItem columnSpan={6}><TotalSubscriptions /></GridItem>
                 <GridItem columnSpan={6}><TotalCancellations /></GridItem>
-                <GridItem columnSpan={6}><VersionTotals version='a' /></GridItem>
-                <GridItem columnSpan={6}><VersionTotals version='b' /></GridItem>
+                <GridItem columnSpan={6}>
+                    <VersionTotals version='a' accountId={ACCOUNT_ID} />
+                </GridItem>
+                <GridItem columnSpan={6}>
+                    <VersionTotals version='b' accountId={ACCOUNT_ID} />
+                </GridItem>
                 <ChartGroup>
                     <GridItem columnSpan={6}>
                         <VersionPageViews version='a' />
