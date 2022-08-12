@@ -1,9 +1,10 @@
 import React from 'react';
+import NewsletterSignups from './newsletter-signups';
 
-// https://docs.newrelic.com/docs/new-relic-programmable-platform-introduction
-
-export default class HomeNerdlet extends React.Component {
-  render() {
-    return <h1>Hello, home Nerdlet!</h1>;
-  }
+export default class AbTestNerdletNerdlet extends React.Component {
+    render() {
+        return <div>
+            <NewsletterSignups />
+        </div>
+    }
 }
