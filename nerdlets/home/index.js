@@ -1,7 +1,9 @@
 import React from 'react';
+import { ChartGroup } from 'nr1';
 import NewsletterSignups from './newsletter-signups';
 import TotalCancellations from './total-cancellations';
 import TotalSubscriptions from './total-subscriptions';
+import VersionPageViews from './page-views';
 import VersionTotals from './totals';
 
 export default class AbTestNerdletNerdlet extends React.Component {
@@ -12,6 +14,10 @@ export default class AbTestNerdletNerdlet extends React.Component {
             <TotalCancellations />
             <VersionTotals version='a' />
             <VersionTotals version='b' />
+            <ChartGroup>
+                <VersionPageViews version='a' />
+                <VersionPageViews version='b' />
+            </ChartGroup>
         </div>
     }
 }
