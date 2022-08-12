@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart } from 'nr1';
+import { HeadingText, PieChart } from 'nr1';
 
 export default class TotalSubscriptions extends React.Component {
     render() {
@@ -25,6 +25,11 @@ export default class TotalSubscriptions extends React.Component {
                 { y: 318 },
             ],
         }
-        return <PieChart data={[subscriptionsA, subscriptionsB]} fullWidth />
+        return <div>
+            <HeadingText className="chartHeader">
+                Total subscriptions per version
+            </HeadingText>
+            <PieChart data={[subscriptionsA, subscriptionsB]} fullWidth />
+        </div>
     }
 }

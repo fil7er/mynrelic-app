@@ -1,5 +1,5 @@
 import React from 'react';
-import { LineChart } from 'nr1';
+import { HeadingText, LineChart } from 'nr1';
 
 export default class VersionPageViews extends React.Component {
     render() {
@@ -22,6 +22,11 @@ export default class VersionPageViews extends React.Component {
                 { x: 50, y: 9 },
             ],
         }
-        return <LineChart data={[versionPageViews]} fullWidth />
+        return <div>
+            <HeadingText className="chartHeader">
+                Version {this.props.version.toUpperCase()} - Page views
+            </HeadingText>
+            <LineChart data={[versionPageViews]} fullWidth />
+        </div>
     }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PieChart } from 'nr1';
+import { HeadingText, PieChart } from 'nr1';
 
 export default class TotalCancellations extends React.Component {
     render() {
@@ -25,6 +25,11 @@ export default class TotalCancellations extends React.Component {
                 { y: 400 },
             ],
         }
-        return <PieChart data={[cancellationsA, cancellationsB]} fullWidth />
+        return <div>
+            <HeadingText className="chartHeader">
+                Total cancellations per version
+            </HeadingText>
+            <PieChart data={[cancellationsA, cancellationsB]} fullWidth />
+        </div>
     }
 }
