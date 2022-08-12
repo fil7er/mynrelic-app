@@ -3,6 +3,7 @@ import {
     HeadingText,
     LineChart,
     NrqlQuery,
+    PlatformStateContext,
 } from 'nr1';
 
 const ACCOUNT_ID = 'Removed'
@@ -13,17 +14,24 @@ export default class VersionPageViews extends React.Component {
             <HeadingText className="chartHeader">
                 Version {this.props.version.toUpperCase()} - Page views
             </HeadingText>
-            <NrqlQuery
-                accountId={ACCOUNT_ID}
-                query={`SELECT count(*) FROM pageView WHERE page_version = '${this.props.version}' TIMESERIES`}
-                pollInterval={60000}
-            >
+            <PlatformStateContext.Consumer>
                 {
-                    ({ data }) => {
-                        return <LineChart data={data} fullWidth />;
+                    (platformState) => {
+                        return <NrqlQuery
+                            accountId={ACCOUNT_ID}
+                            query={`SELECT count(*) FROM pageView WHERE page_version = '${this.props.version}' TIMESERIES`}
+                            timeRange={platformState.timeRange}
+                            pollInterval={60000}
+                        >
+                            {
+                                ({ data }) => {
+                                    return <LineChart data={data} fullWidth />;
+                                }
+                            }
+                        </NrqlQuery>
                     }
                 }
-            </NrqlQuery>
+            </PlatformStateContext.Consumer>
         </div>
     }
 }
