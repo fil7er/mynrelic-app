@@ -47,8 +47,16 @@ export default class AbTestNerdletNerdlet extends React.Component {
                         <VersionPageViews version='b' />
                     </GridItem>
                 </ChartGroup>
-                <GridItem columnSpan={12}><EndTestSection /></GridItem>
-                <GridItem columnSpan={12}><PastTests /></GridItem>
+                <GridItem columnSpan={12}>
+                    <EndTestSection
+                        accountId={ACCOUNT_ID}
+                        versionADescription={VERSION_A_DESCRIPTION}
+                        versionBDescription={VERSION_B_DESCRIPTION}
+                    />
+                </GridItem>
+                <GridItem columnSpan={12}>
+                    <PastTests accountId={ACCOUNT_ID} />
+                </GridItem>
             </Grid>
         </div>
     }
